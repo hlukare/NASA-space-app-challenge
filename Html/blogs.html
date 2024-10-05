@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Section</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000; /* Dark black background */
+      color: #fff; /* White text color for contrast */
+      height: 100vh; /* Full height of viewport */
+      overflow: hidden; /* Prevent scrolling */
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%; /* Full height of the container */
+    }
+
+    .title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      width: 100%; /* Full width for search bar */
+    }
+
+    .search-bar input {
+      width: 70%;
+      padding: 15px; /* Increased padding */
+      border: 1px solid #ccc;
+      border-radius: 30px; /* Rounded corners */
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+      background-color: #333; /* Darker background for input */
+      color: #fff; /* White text */
+    }
+
+    .search-bar input:focus {
+      border-color: #007bff; /* Change border color on focus */
+    }
+
+    .search-bar .btn {
+      padding: 15px 30px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 30px; /* Rounded corners */
+      cursor: pointer;
+      font-size: 1rem;
+      margin-left: 10px; /* Space between input and button */
+      transition: background-color 0.3s;
+    }
+
+    .search-bar .btn:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+      grid-template-rows: 1fr; /* One row that fills height */
+      height: calc(100vh - 150px); /* Adjusting height minus title and search bar */
+      gap: 20px; /* Gap between cards */
+      padding: 0 20px; /* Padding for left and right */
+      overflow-y: auto; /* Allow scrolling for cards */
+    }
+
+    .blog-card {
+      background-color: #222; /* Darker card background */
+      border-radius: 5px; /* Slight rounded corners */
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column; /* Flex to stack image and content */
+      height: 100%; /* Full height of the card */
+    }
+
+    .blog-card:hover {
+      transform: scale(1.05); /* Scale effect on hover */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); /* Darker shadow on hover */
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 50%; /* Half height for image */
+      object-fit: cover; /* Cover to maintain aspect ratio */
+    }
+
+    .blog-card .content {
+      padding: 20px; /* Increased padding */
+      display: flex;
+      flex-direction: column; /* Stack title and text */
+      justify-content: center; /* Center content */
+      height: 50%; /* Half height for content */
+    }
+
+    .blog-card h2 {
+      font-size: 1.5rem; /* Medium font for title */
+      margin-bottom: 10px;
+    }
+
+    .blog-card p {
+      font-size: 0.9rem;
+      color: #bbb; /* Light gray text for better contrast */
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+      padding-top: 60px; /* Spacing from the top */
+    }
+
+    .modal-content {
+      background-color: #222;
+      margin: 5% auto; /* 15% from the top and centered */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; /* Width of the modal */
+      max-width: 500px; /* Max width */
+      border-radius: 10px; /* Rounded corners */
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .modal input, .modal textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #333;
+      color: #fff;
+      outline: none;
+    }
+
+    .modal input:focus, .modal textarea:focus {
+      border-color: #007bff; /* Change border color on focus */
+    }
+
+    .modal .btn-submit {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .modal .btn-submit:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    /* Style for file input */
+    .modal input[type="file"] {
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #333;
+      color: #fff;
+      outline: none;
+    }
+
+    .modal input[type="file"]:focus {
+      border-color: #007bff; /* Change border color on focus */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Pollution Impact: Men's Health Blog</h1>
+    
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search blogs...">
+      <button class="btn" id="writeBlogBtn">Write Your Own Blog</button>
+    </div>
+
+    <div class="blog-grid">
+      <!-- Blog Card -->
+      <div class="blog-card">
+        <img src="image1.jpg" alt="Blog 1 Image">
+        <div class="content">
+          <h2>The Silent Killer: Air Pollution</h2>
+          <p>Discover how air pollution is affecting male reproductive health and what you can do about it.</p>
+        </div>
+      </div>
+      <!-- Blog Card -->
+      <div class="blog-card">
+        <img src="image2.jpg" alt="Blog 2 Image">
+        <div class="content">
+          <h2>Breathing in Toxins: A Hidden Danger</h2>
+          <p>Learn about the toxins in the air we breathe and their effects on men's health.</p>
+        </div>
+      </div>
+      <!-- Blog Card -->
+      <div class="blog-card">
+        <img src="image3.jpg" alt="Blog 3 Image">
+        <div class="content">
+          <h2>Impact of Urbanization on Health</h2>
+          <p>How urban living contributes to various health issues in men.</p>
+        </div>
+      </div>
+      <!-- Add more blog cards as needed -->
+    </div>
+  </div>
+
+  <!-- Modal for writing a blog -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Write Your Own Blog</h2>
+      <input type="text" placeholder="Blog Title" id="blogTitle">
+      <textarea placeholder="Write your blog content here..." rows="5" id="blogContent"></textarea>
+      <input type="file" id="blogImage" accept="image/*">
+      <button class="btn-submit">Submit Blog</button>
+    </div>
+  </div>
+
+  <script>
+    // Get modal element
+    var modal = document.getElementById("myModal");
+
+    // Get button that opens the modal
+    var btn = document.getElementById("writeBlogBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Add functionality for submit button
+    document.querySelector('.btn-submit').onclick = function() {
+      const title = document.getElementById('blogTitle').value;
+      const content = document.getElementById('blogContent').value;
+      const image = document.getElementById('blogImage').files[0];
+
+      // Placeholder for form submission logic
+      console.log('Blog Title:', title);
+      console.log('Blog Content:', content);
+      if (image) {
+        console.log('Image:', image.name);
+      }
+
+      // Reset modal
+      modal.style.display = "none";
+      document.getElementById('blogTitle').value = '';
+      document.getElementById('blogContent').value = '';
+      document.getElementById('blogImage').value = '';
+    }
+  </script>
+</body>
+</html>

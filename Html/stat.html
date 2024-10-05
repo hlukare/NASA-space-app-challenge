@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pollution's Perilous Path: Men Under Siege!</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #1a202c;
+    }
+
+    /* Card Styles */
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 1.8rem;
+      color: #ff6b6b;
+    }
+
+    .card-description {
+      color: #6b7280;
+      margin-bottom: 20px;
+    }
+
+    /* Chart container */
+    .chart-container {
+      height: 400px;
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    table th, table td {
+      padding: 12px;
+      border: 1px solid #ddd;
+    }
+
+    table th {
+      background-color: #ff6b6b;
+      color: white;
+    }
+
+    table td {
+      background-color: white;
+      color: #333;
+    }
+
+    .table-heading {
+      width: 180px;
+      color: red;
+    }
+
+    .alert {
+      color: red;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .center-text {
+      text-align: center;
+      margin-top: 40px;
+      color: #374151;
+    }
+
+    .next-button {
+      background-color: #e11d48;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .next-button:hover {
+      background-color: #be123c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Pollution's Perilous Path: Men Under Siege!</h1>
+
+    <!-- Pollution Chart Card -->
+    <div class="card">
+      <h2 class="card-title">The Rising Tide of Toxicity</h2>
+      <p class="card-description">Pollution's Relentless March (Danger Index: 0-100)</p>
+      <div class="chart-container">
+        <canvas id="pollutionChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Male Health Table Card -->
+    <div class="card">
+      <h2 class="card-title alert">
+        <span>⚠️</span> Male Health: The Hidden Casualties
+      </h2>
+      <p class="card-description">Shocking revelations of pollution's sneak attacks!</p>
+      <table>
+        <thead>
+          <tr>
+            <th class="table-heading">Pollution Menace</th>
+            <th>Male Health Ambush</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Air Assault</td>
+            <td>Sperm Under Siege! 🦠 Lungs in Distress! 😷</td>
+          </tr>
+          <tr>
+            <td>Water Warfare</td>
+            <td>Fertility on the Frontline! 🚱 Hormones in Havoc! 💦</td>
+          </tr>
+          <tr>
+            <td>Soil Sabotage</td>
+            <td>Toxic Invasion! ☠️ Fertility Field Under Fire! 🌱</td>
+          </tr>
+          <tr>
+            <td>Noise Nightmare</td>
+            <td>Stress Tsunami! 🌊 Hearing Under Heavy Fire! 🔊</td>
+          </tr>
+          <tr>
+            <td>Light Lockdown</td>
+            <td>Sleep Sabotaged! 😴 Testosterone in Turmoil! 🌙</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Center Text and Button -->
+    <div class="center-text">
+      <p>🚨 Wake-up Call: The Silent War on Male Health! 🚨</p>
+      <p>These alarming statistics expose the covert operations of pollution against men's health. It's time to unmask these hidden dangers and take action!</p>
+      <a href="case-studies.html" class="next-button">Next: Uncover Shocking Case Studies</a>
+    </div>
+  </div>
+
+  <!-- Chart.js Script -->
+  <script>
+    const ctx = document.getElementById('pollutionChart').getContext('2d');
+    const pollutionChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['2010', '2012', '2014', '2016', '2018', '2020'],
+        datasets: [
+          { label: 'Air Assault', data: [65, 59, 80, 81, 56, 55], backgroundColor: '#ff6b6b' },
+          { label: 'Water Warfare', data: [50, 55, 45, 60, 65, 70], backgroundColor: '#4ecdc4' },
+          { label: 'Soil Sabotage', data: [40, 42, 38, 45, 50, 55], backgroundColor: '#45b7d1' },
+          { label: 'Noise Nightmare', data: [55, 58, 60, 62, 65, 68], backgroundColor: '#f7b731' },
+          { label: 'Light Lockdown', data: [30, 32, 35, 38, 40, 45], backgroundColor: '#5f27cd' }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            title: { display: true, text: 'Year' }
+          },
+          y: {
+            title: { display: true, text: 'Danger Index' }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

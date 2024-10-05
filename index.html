@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sync</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/model.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- custom js file link  -->
+    <script src="js/script.js" defer></script>
+    <script src="js/model.js" defer></script>
+
+</head>
+<body>
+    <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+      </script>
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+  
+        // Fetch your API_KEY
+        const API_KEY = "AIzaSyB50hOqasuSSQ_Q-ZpWx08thOw_ZIGfJqg";
+    </script>
+    
+<!-- header section starts  -->
+
+<div id="react-root" style="display: none;"></div> <!-- Hidden initially -->
+
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="js/abc.js" type="text/javascript" defer></script>
+    
+
+<header class="header">
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+    <!-- <a data-aos="zoom-in-left" data-aos-delay="150" href="#" class="logo"> <i class="fas fa-paper-plane"></i>Sync </a> -->
+    <!-- <a data-aos="zoom-in-left" data-aos-delay="150" href="#" class="logo">
+        <img src="images1/logo1.png" alt="Bird Logo" style="width: 24px; height: 24px;"> Sync
+    </a> -->
+    <a data-aos="zoom-in-left" data-aos-delay="150" href="#" class="logo">
+        <i class="fas fa-sync-alt"></i> Sync
+    </a>
+      
+      
+
+    <nav class="navbar">
+        <a data-aos="zoom-in-left" data-aos-delay="300" href="#home">Home</a>
+        <!-- <a data-aos="zoom-in-left" data-aos-delay="300" href="./Html/solution.html" onclick="loadContent('solution.html')">Solution</a> -->
+        <a data-aos="zoom-in-left" data-aos-delay="450" href="#About">About</a>
+        <a data-aos="zoom-in-left" data-aos-delay="600" href="./Html/index1.html">Game</a>
+        <a data-aos="zoom-in-left" data-aos-delay="600" href="./Html/solution.html">Community</a>
+        <a data-aos="zoom-in-left" data-aos-delay="600" href="./Html/startg.html">Quiz</a>
+        <a data-aos="zoom-in-left" data-aos-delay="750" href="#">Contact Us</a>
+    </nav>
+
+    <!-- <a data-aos="zoom-in-left" data-aos-delay="300" href="./Html/startg.html" class="btn">Login</a> -->
+    <!-- <a href="#" class="btn btn--open-modal" data-aos="zoom-in-left" data-aos-delay="300">Login</a> -->
+    <a href="#" class="btn btn--open-modal">Login</a>
+
+
+    <!-- <a data-aos="zoom-in-left" data-aos-delay="300" href="./Html/startg.html" class="btn">Register</a> -->
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <span data-aos="fade-up" data-aos-delay="150">Let's Explore</span>
+        <h3 data-aos="fade-up" data-aos-delay="300">Understanding Climate and Gender</h3>
+        <p data-aos="fade-up" data-aos-delay="450">
+            Climate change and gender inequality are connected global issues. Dive into the data, explore real-world impacts, and be part of the change toward a more sustainable and gender-equal world.
+        </p>
+        <a data-aos="fade-up" data-aos-delay="600" href="#" class="btn">Explore</a>
+    </div>    
+
+</section>
+
+<!-- home section ends -->
+
+<!-- booking form section starts  -->
+
+
+<!-- <section class="book-form" id="book-form">
+    <form action="">
+        <div data-aos="zoom-in" data-aos-delay="150" class="inputBox">
+            <span>Age Group:</span>
+            <select name="age-group">
+                <option value="1-21">1-21</option>
+                <option value="22-50">22-50</option>
+                <option value="51+">51+</option>
+            </select>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-delay="300" class="inputBox">
+            <span>Gender:</span>
+            <select name="category">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-delay="450" class="inputBox">
+            <span>When?</span>
+            <input type="date" value="">
+        </div>
+
+        <input data-aos="zoom-in" data-aos-delay="600" type="submit" value="Explore" class="btn">
+    </form>
+</section> -->
+
+<section class="book-form" id="book-form">
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <!-- Blog Upload -->
+        <div data-aos="zoom-in" data-aos-delay="150" class="inputBox">
+            <span>Upload your Blog:</span>
+            <input type="file" name="blog-upload" accept=".doc, .docx, .pdf, .txt" required>
+        </div>
+
+        <!-- Date Selection -->
+        <div data-aos="zoom-in" data-aos-delay="300" class="inputBox">
+            <span>When?</span>
+            <input type="date" value="">
+        </div>
+
+        <!-- Explore Button -->
+        <input data-aos="zoom-in" data-aos-delay="450" type="submit" value="Submit" class="btn">
+    </form>
+</section>
+
+
+
+<!-- booking form section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <div class="video-container" data-aos="fade-right" data-aos-delay="300">
+        <video src="images/about-vid-4.mp4" muted autoplay loop class="video"></video>
+        <div class="controls">
+            <span class="control-btn" data-src="images/about-vid-4.mp4"></span>
+            <span class="control-btn" data-src="images/about-vid-4.mp4"></span>
+            <span class="control-btn" data-src="images/about-vid-5.mp4"></span>
+        </div>
+    </div>
+
+    <div class="content" data-aos="fade-left" data-aos-delay="600">
+        <span>Why Focus on This?</span>
+        <h3>Climate and Gender</h3>
+        <p>
+            Women and vulnerable groups face greater risks from climate change. Tackling gender inequality can lead to stronger, sustainable solutions.
+        </p>
+        <a href="#" class="btn">Learn More</a>
+    </div>
+    
+    
+
+</section>
+
+<!-- about section ends -->
+
+<!-- destination section starts  -->
+
+<!-- <section class="destination" id="destination">
+
+    <div class="heading">
+        <span>Our Mission</span>
+        <h1>Shape a Sustainable Future</h1>
+    </div>
+    
+
+    <div class="box-container">
+
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <div class="image">
+                <img src="images/des-1.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Taj Mahal, Agra</h3>
+                <p>“No wonder, it's a wonder.”
+                “A white pearl in the light blue sky's ocean.”
+            The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.In the memory of his favourite wife, Mumtaz Mahal.</p>
+                <a href="#">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="300">
+            <div class="image">
+                <img src="images/des-2.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>The Golden Temple, Amritsar, Punjab</h3>
+                <p>Amritsar is the largest and most important city in Punjab and is a major commercial, cultural, and transportation centre. It is also the centre of Sikhism and the site of the Sikhs' principal place of worship—the Harmandir Sahib, or Golden Temple</p>
+                <a href="#">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="450">
+            <div class="image">
+                <img src="images/des-3.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Shri Badarinath Kedarnath Temple</h3>
+                <p>Shri Kedarnath Temple, dedicated to Lord Shiva, is the eleventh out of twelve Jyotirlingas of India, whie Shri Badarinath Temple is dedicated to Lord Vishnu.</p>
+                <a href="#">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="600">
+            <div class="image">
+                <img src="images/des-8.jpeg" alt="">
+            </div>
+            <div class="content">
+                <h3>Belurmath Howrah West Bengal</h3>
+                <p>One from Balurmath Howrah West Bengal. Belur Math is the headquarters of the Ramakrishna Math and Ramakrishna Mission, founded by Swami Vivekananda, the chief disciple of Ramakrishna Paramahamsa.</p>
+                <a href="#">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+</section> -->
+
+<section class="destination" id="destination">
+
+    <div class="heading">
+        <span>Our Mission</span>
+        <h1>Shape a Sustainable Future</h1>
+    </div>
+
+    <div class="box-container">
+
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <div class="image">
+                <img src="images2/men.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Male</h3>
+                <p>Climate change has different impacts on men and women. Men in certain regions often face challenges in agriculture, fishing, and construction jobs due to changing climates, affecting both livelihoods and community stability.</p>
+                <a href="#">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="300">
+            <div class="image">
+                <img src="images2/women.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Female</h3>
+                <p>Women are disproportionately affected by climate change. Empowering women through education and leadership roles in climate policy can drive positive change in mitigating climate-related challenges.</p>
+                <a href="#">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="450">
+            <div class="image">
+                <img src="images1/climate1.jpeg" alt="">
+            </div>
+            <div class="content">
+                <h3>Animals and Birds</h3>
+                <p>Climate change threatens biodiversity by altering habitats and food sources. Many species of animals and birds are at risk of extinction unless steps are taken to reduce global warming and protect ecosystems.</p>
+                <a href="#">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="600">
+            <div class="image">
+                <img src="images1/p2.jpeg" alt="">
+            </div>
+            <div class="content">
+                <h3>Others</h3>
+                <p>Climate change affects not only humans and wildlife but also entire ecosystems. Addressing these issues holistically is critical for building a sustainable future for all living organisms on the planet.</p>
+                <a href="#">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- destination section ends -->
+
+<!-- services section starts  -->
+
+
+
+<section class="services" id="services">
+
+    <div class="heading">
+        <span>Our Services</span>
+        <h1>Empowering Solutions</h1>
+    </div>
+
+    <div class="box-container">
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+            <i class="fas fa-globe"></i>
+            <h3>Global Reach</h3>
+            <p>Our platform connects communities worldwide to raise awareness about the intersection of climate change and gender inequality.</p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+            <i class="fas fa-chart-line"></i>
+            <h3>Data-Driven Insights</h3>
+            <p>We provide interactive charts and data visualizations to help you understand the impact of climate change on different gender groups.</p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+            <i class="fas fa-video"></i>
+            <h3>Educational Webinars</h3>
+            <p>Attend live sessions and webinars with experts discussing the latest trends and solutions to environmental and gender-related challenges.</p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="600">
+            <i class="fas fa-comments"></i>
+            <h3>Community Support</h3>
+            <p>Join discussions and connect with others who are passionate about climate action and gender equality.</p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="750">
+            <i class="fas fa-balance-scale"></i>
+            <h3>Policy Advocacy</h3>
+            <p>We provide tools and resources for advocating policy changes that address the intertwined issues of gender inequality and environmental justice.</p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="900">
+            <i class="fas fa-headset"></i>
+            <h3>24/7 Support</h3>
+            <p>Our platform offers continuous support, ensuring you have access to the resources and information you need to take action.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- services section ends -->
+
+<!-- gallery section starts  -->
+
+<!-- <section class="gallery" id="gallery">
+
+    <div class="heading">
+        <span>our gallery</span>
+        <h1>we record memories</h1>
+    </div>
+    
+    <div class="box-container">
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+            <img src="images/gallery-img-1.jpeg" alt="">
+            <span>travel spot</span>
+            <h3>Meghalaya - Natural Beauty</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+            <img src="images/gallery-img-2.jpeg" alt="">
+            <span>travel spot</span>
+            <h3>Hampi - Ramayana to Vijaynagara</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+            <img src="images/gallery-img-3.jpeg" alt="">
+            <span>travel spot</span>
+            <h3>Kashmir - Heart of the Nation</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+            <img src="images/gallery-img-4.jfif" alt="">
+            <span>travel spot</span>
+            <h3>Kerala - State od Spices</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+            <img src="images/gallery-img-5.jpeg" alt="">
+            <span>travel spot</span>
+            <h3>Thanjavur Big Temple - Tamil Nadu</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+            <img src="images/SOU.jpg" alt="">
+            <span>travel spot</span>
+            <h3>Statue of Unity - Gujarat </h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+            <img src="images/gallery-img-7.jpeg" alt="">
+            <span>travel spot</span>
+            <h3>Uttarkhand</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+            <img src="images/gallery-img-8.jpeg" alt="">
+            <span>travel spot</span>
+            <h3>Jaipur - Pink City</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+            <img src="images/gallery-img-9.jpeg" alt="">
+            <span>travel spot</span>
+            <h3>Qutub Minar - victory tower, Delhi</h3>
+        </div>
+
+    </div>
+
+</section> -->
+
+<section class="gallery" id="gallery">
+
+    <div class="heading">
+        <span>Our Gallery</span>
+        <h1>Capturing Moments of Change</h1>
+    </div>
+    
+    <div class="box-container">
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+            <img src="images2/Awareness.jpeg" alt="">
+            <span>Awareness Campaign</span>
+            <h3>Meghalaya - Voices for the Environment</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+            <img src="images2/Community engagement.png" alt="">
+            <span>Community Engagement</span>
+            <h3>Hampi - Tradition Meets Sustainability</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+            <img src="images2/Empowerment Initiatives.png" alt="">
+            <span>Empowerment Initiatives</span>
+            <h3>Kashmir - Women Leading Change</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+            <img src="images2/Eco-friendly practices.jpeg" alt="">
+            <span>Eco-Friendly Practices</span>
+            <h3>Kerala - Sustainable Living</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+            <img src="images2/Heritage and conservation.jpeg" alt="">
+            <span>Heritage and Conservation</span>
+            <h3>Thanjavur Big Temple - A Cultural Legacy</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+            <img src="images2/unity in diversity.jpeg" alt="">
+            <span>Unity in Diversity</span>
+            <h3>Statue of Unity - Celebrating Resilience</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+            <img src="images2/Natural Conservatopm.jpeg" alt="">
+            <span>Natural Conservation</span>
+            <h3>Uttarakhand - Protecting Our Planet</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+            <img src="images2/Cultural exchange.jpeg" alt="">
+            <span>Cultural Exchange</span>
+            <h3>Jaipur - Empowering Communities</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+            <img src="images2/Historical Significance.jpeg" alt="">
+            <span>Historical Significance</span>
+            <h3>Qutub Minar - A Symbol of Unity</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="600">
+            <img src="images2/Youth participation.jpeg" alt="">
+            <span>Youth Participation</span>
+            <h3>Delhi - Youth for Climate Action</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="750">
+            <img src="images2/clean energy.jpeg" alt="">
+            <span>Clean Energy</span>
+            <h3>Rajasthan - Solar Power Initiatives</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="900">
+            <img src="images2/community Gardens.jpeg" alt="">
+            <span>Community Gardens</span>
+            <h3>Mumbai - Urban Green Spaces</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="1050">
+            <img src="images2/Climate Resilience.jpeg" alt="">
+            <span>Climate Resilience</span>
+            <h3>Bihar - Adapting to Change</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- gallery section ends -->
+
+<!-- review section starts  -->
+
+<!-- <section class="review">
+
+    <div class="content" data-aos="fade-right" data-aos-delay="300">
+        <span>testimonials</span>
+        <h3>good news from our clients</h3>
+        <p>The tradiion the indian tribes follows is wonderful, aspiring as the spirits of the people worshiping lord and lordess, the delicious dishes, and the dance form played in every region of India is different.</p>
+    </div>
+
+    <div class="box-container" data-aos="fade-left" data-aos-delay="600">
+
+        <div class="box">
+            <div class="user">
+                <img src="images/pic-1.png" alt="">
+                <div class="info">
+                    <h3>john deo</h3>
+                    <span>designer</span>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <p></p>
+            <div class="user">
+                <img src="images/pic-2.png" alt="">
+                <div class="info">
+                    <h3>john deo</h3>
+                    <span>planner</span>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="user">
+                <img src="images/pic-3.png" alt="">
+                <div class="info">
+                    <h3>john deo</h3>
+                    <span>chief</span>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="user">
+                <img src="images/pic-4.png" alt="">
+                <div class="info">
+                    <h3>john deo</h3>
+                    <span>manager</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section> -->
+
+<section class="review">
+
+    <div class="content" data-aos="fade-right" data-aos-delay="300">
+        <span>Testimonials</span>
+        <h3>Voices from the Frontlines</h3>
+        <p>“Climate change is not gender-neutral. Women, especially from marginalized communities, are facing the brunt of its impact. Their resilience and solutions are key to our sustainable future.”</p>
+    </div>
+
+    <div class="box-container" data-aos="fade-left" data-aos-delay="600">
+
+        <div class="box">
+            <div class="user">
+                <img src="images/pic-1.png" alt="">
+                <div class="info">
+                    <h3>Rina Patel</h3>
+                    <span>Climate Activist</span>
+                </div>
+            </div>
+            <p>"Empowering women with knowledge and resources is critical in addressing the climate crisis. Our collective voices will drive change."</p>
+        </div>
+
+        <div class="box">
+            <div class="user">
+                <img src="images/pic-2.png" alt="">
+                <div class="info">
+                    <h3>Sophia Lopez</h3>
+                    <span>Environmental Researcher</span>
+                </div>
+            </div>
+            <p>"In my work, I have seen the profound effects of climate change on vulnerable women. We need more inclusive climate policies to protect our future."</p>
+        </div>
+
+        <div class="box">
+            <div class="user">
+                <img src="images/pic-3.png" alt="">
+                <div class="info">
+                    <h3>Fatima Malik</h3>
+                    <span>Community Leader</span>
+                </div>
+            </div>
+            <p>"Women in my community have taken climate adaptation into their own hands. From sustainable farming to waste management, they are the unsung heroes."</p>
+        </div>
+
+        <div class="box">
+            <div class="user">
+                <img src="images/pic-4.png" alt="">
+                <div class="info">
+                    <h3>Amira Khan</h3>
+                    <span>Social Entrepreneur</span>
+                </div>
+            </div>
+            <p>"We cannot talk about climate action without including women at every stage. Their ideas and leadership are crucial for real progress."</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- review section ends -->
+
+<!-- blogs section starts  -->
+
+<!-- blogs section starts  -->
+
+<section class="blogs" id="blogs">
+
+    <div class="heading">
+        <span>Blogs & Posts</span>
+        <h1>Inspiring Change Through Knowledge.</h1>
+    </div>
+
+    <div class="box-container">
+
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <div class="image">
+                <img src="images2/Education.jpeg.jpg" alt="">
+            </div>
+            <div class="content">
+                <a href="https://www.un.org/en/climatechange/climate-solutions/education-key-addressing-climate-change" class="link" target="_blank">Education: A Key to Climate Solutions</a>
+                <p>Explore how education plays a vital role in addressing climate change and fostering sustainable practices across communities.</p>
+                <div class="icon">
+                    <a href="#"><i class="fas fa-clock"></i> 5th Oct, 2024</a>
+                    <a href="#"><i class="fas fa-user"></i> by Advat</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="300">
+            <div class="image">
+                <img src="images2/communitySuccessful.jpeg.jpg" alt="">
+            </div>
+            <div class="content">
+                <a href="https://www.budgetdumpster.com/blog/organize-successful-community-cleanup" class="link" target="_blank">Organizing Successful Community Clean-Ups</a>
+                <p>Discover tips and best practices for organizing impactful community clean-up events that make a difference.</p>
+                <div class="icon">
+                    <a href="#"><i class="fas fa-clock"></i> 5th Oct, 2024</a>
+                    <a href="#"><i class="fas fa-user"></i> by admin</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="450">
+            <div class="image">
+                <img src="images2/understanding climate.jpeg.jpg" alt="">
+            </div>
+            <div class="content">
+                <a href="https://www.climaterealityproject.org/" class="link" target="_blank">Understanding Climate Change Adaptation</a>
+                <p>Learn about the importance of climate change adaptation strategies and how they can help communities thrive in changing environments.</p>
+                <div class="icon">
+                    <a href="#"><i class="fas fa-clock"></i> 6th oct, 2024</a>
+                    <a href="#"><i class="fas fa-user"></i> by admin</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- blogs section ends -->
+
+<!-- banner section starts  -->
+
+<!-- <div class="banner">
+
+    <div class="content" data-aos="zoom-in-up" data-aos-delay="300">
+        <span>start your adventures</span>
+        <h3>Let's Explore Our Nation</h3>
+        <p>The nation of lingusitc languages, various cultures and heritage. </p>
+        <a href="#book-form" class="btn">book now</a>
+    </div>
+
+</div> -->
+
+<div class="banner">
+
+    <div class="content" data-aos="zoom-in-up" data-aos-delay="300">
+        <span>Join the Movement</span>
+        <h3>Together for a Sustainable Future</h3>
+        <p>Explore the rich diversity of our nation while contributing to climate awareness and gender equality.</p>
+        <a href="#book-form" class="btn">Get Involved</a>
+    </div>
+
+</div>
+
+
+<!-- banner section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer" id="footer">
+
+    <div class="box-container">
+        </a>
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <a href="#" class="logo"> <i class="fas fa-sync-alt"></i>Sync </a>
+            <p></p>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="300">
+            <h3>quick links</h3>
+            <a href="./Html/blogs.html" class="links"> <i class="fas fa-arrow-right"></i> Blogs </a>
+            <a href="./Html/page.html" class="links"> <i class="fas fa-arrow-right"></i> Page </a>
+            <a href="./Html/polution.html" class="links"> <i class="fas fa-arrow-right"></i> Pollution </a>
+            <a href="./Html/solution.html" class="links"> <i class="fas fa-arrow-right"></i> Community Support </a>
+            <a href="./Html/stat.html" class="links"> <i class="fas fa-arrow-right"></i> Statistics </a>
+            <a href="#blogs" class="links"> <i class="fas fa-arrow-right"></i> News </a>
+            <a href="#blogs" class="links"> <i class="fas fa-arrow-right"></i> contact us </a>
+        </div>
+
+        <!-- <nav class="navbar">
+            <a data-aos="zoom-in-left" data-aos-delay="300" href="#home">Home</a>
+            <a data-aos="zoom-in-left" data-aos-delay="450" href="#About">About</a>
+            <a data-aos="zoom-in-left" data-aos-delay="600" href="#Temp">Temp</a>
+            <a data-aos="zoom-in-left" data-aos-delay="750" href="#History">History</a>
+            <a data-aos="zoom-in-left" data-aos-delay="900" href="#Utility">Utility</a>
+            <a data-aos="zoom-in-left" data-aos-delay="1150" href="#News">News</a>
+            <a data-aos="zoom-in-left" data-aos-delay="750" href="#contact">Contact Us</a>
+        </nav> -->
+
+        <div class="box" data-aos="fade-up" data-aos-delay="450">
+            <h3>contact info</h3>
+            <p> <i class="fas fa-map"></i> Nashik, india </p>
+            <p> <i class="fas fa-phone"></i> +91 8055281062</p>
+            <p> <i class="fas fa-envelope"></i> abc@gmail.com </p>
+            <!-- <p> <i class="fas fa-clock"></i> 7:00am - 10:00pm </p> -->
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="600">
+            <h3>newsletter</h3>
+            <p>subscribe for latest updates</p>
+            <form action="">
+                <input type="email" name="" placeholder="enter your email" class="email" id="">
+                <input type="submit" value="subscribe" class="btn">
+            </form>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="credit">created by <span>&copy; Sync - Climate change and Gender Equlity </span> | all rights reserved!</div>
+
+<!-- footer section ends -->
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script>
+
+    AOS.init({
+        duration: 800,
+        offset:150,
+    });
+
+</script>
+
+<!-- Other HTML content above -->
+
+<!-- Modal Structure -->
+<div class="modal-wrapper modal-hidden">
+    <div class="modal-content-area">
+        <span class="close-modal-btn">&times;</span>
+        <h2>Login</h2>
+        <form id="login-form">
+            <div class="form-section">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-section">
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-section">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+            <button type="button" class="close-modal-btn">Back</button>
+        </form>
+    </div>
+</div>
+
+<div class="overlay modal-hidden"></div>
+
+</body>
+
+
+</body>
+</html>

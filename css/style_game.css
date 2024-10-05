@@ -1,0 +1,78 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111111d5;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background:#29d9d5;
+    color: aaa;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+p { 
+    font-size: 1.2em;
+}
+
+/* Main content */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.game-section {
+    background: #ffffff;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.game-section h2 {
+    font-size: 2em;
+    color: #29d9d5;
+    margin-bottom: 10px;
+}
+
+.game-section p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.game-image {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.game-image:hover {
+    transform: scale(1.05);
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: white;
+    margin-top: 20px;
+}

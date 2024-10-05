@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category Selection</title>
+  <style>
+    /* Base styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Container for the cards, full screen, centered */
+    .container {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Card styles - fullscreen layout */
+    .card {
+      background-color: #1a1a1a;
+      width: 40%;
+      height: 60%;
+      margin: 0 20px;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Hover effect */
+    .card:hover {
+      transform: scale(1.05);
+      background-color: #333;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9);
+    }
+
+    /* Card header */
+    .card-header h2 {
+      font-size: 36px;
+      margin: 0;
+    }
+
+    /* Card content */
+    .card-content p {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    /* Card footer */
+    .card-footer .button {
+      padding: 15px 25px;
+      border-radius: 10px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .card-footer .button:hover {
+      background-color: #2980b9;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .card {
+        width: 80%;
+        height: 50%;
+      }
+
+      .card-header h2 {
+        font-size: 28px;
+      }
+
+      .card-content p {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        width: 90%;
+        height: 50%;
+      }
+
+      .card-header h2 {
+        font-size: 24px;
+      }
+
+      .card-content p {
+        font-size: 16px;
+      }
+
+      .card-footer .button {
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card" id="pollution-card">
+      <div class="card-header">
+        <h2>Pollution</h2>
+      </div>
+      <div class="card-content">
+        <p>Explore the impacts of pollution on our environment</p>
+      </div>
+      <div class="card-footer">
+        <a href="pollution.html" class="button">Explore Pollution</a>
+      </div>
+    </div>
+    
+    <div class="card" id="disasters-card">
+      <div class="card-header">
+        <h2>Disasters</h2>
+      </div>
+      <div class="card-content">
+        <p>Learn about natural and man-made disasters</p>
+      </div>
+      <div class="card-footer">
+        <a href="disasters.html" class="button">Explore Disasters</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // For additional interactivity or dynamic effects
+    console.log("Page Loaded");
+  </script>
+</body>
+</html>

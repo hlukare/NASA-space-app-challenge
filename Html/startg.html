@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change and Gender Quiz</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            background-color: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .title {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+
+        .button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-container {
+            margin-top: 2rem;
+        }
+
+        .question-card {
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .question {
+            color: #34495e;
+            margin-bottom: 1rem;
+        }
+
+        .answer-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: white;
+            color: #2c3e50;
+            border: 2px solid #bdc3c7;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .answer-button:hover {
+            background-color: #ecf0f1;
+        }
+
+        .feedback {
+            color: #2c3e50;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #3498db;
+            transition: width 0.3s ease;
+        }
+
+        .results-container {
+            text-align: center;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Climate Change and Gender Relationship Quiz</h1>
+        <p>Test your knowledge about the intersection of climate change and gender issues!</p>
+        <button class="button" id="startQuizBtn">Start Quiz</button>
+
+        <div id="quizContainer" class="quiz-container" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress" id="progress" style="width: 0%;"></div>
+            </div>
+            <div class="question-card" id="questionCard">
+                <h2 class="question" id="question"></h2>
+                <div id="answerButtons"></div>
+                <p class="feedback" id="feedback" style="display: none;"></p>
+            </div>
+        </div>
+
+        <div id="resultsContainer" class="results-container" style="display: none;">
+            <h2>Quiz Results</h2>
+            <p id="scoreText"></p>
+            <canvas id="resultsChart" width="400" height="200"></canvas>
+            <p>Did you know? Women are 14 times more likely than men to die during a disaster.</p>
+            <button class="button" id="learnMoreBtn">Learn More</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "How does climate change disproportionately affect women and gender minorities?",
+                answers: [
+                    "Women are less exposed to climate impacts.",
+                    "They are more vulnerable due to inequalities in resources and decision-making.",
+                    "Climate change affects all genders equally.",
+                    "Gender has no impact on climate experiences."
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "Which example illustrates a gendered impact of climate change?",
+                answers: [
+                    "Equal job opportunities across sectors.",
+                    "Increased workloads for women due to resource scarcity.",
+                    "Women gaining political power from climate migration.",
+                    "Climate change affects all genders the same."
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "Why should gender equality and climate action be addressed together?",
+                answers: [
+                    "They are unrelated and should be tackled separately.",
+                    "Promoting gender equality builds resilience in communities during climate disasters.",
+                    "Climate action only benefits men.",
+                    "Climate change is purely a technological issue."
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "How can gender-sensitive policies enhance climate solutions?",
+                answers: [
+                    "By focusing solely on technology.",
+                    "By involving women and marginalized genders in decision-making.",
+                    "By ignoring gender differences.",
+                    "By providing solutions only to male-led communities."
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "In what way might climate change alter traditional gender roles?",
+                answers: [
+                    "It reinforces existing roles.",
+                    "It offers opportunities for new roles in community leadership for women.",
+                    "It impacts only men, leaving women unchanged.",
+                    "It has no effect on societal roles."
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "What could be a 'crazy' scenario arising from the intersection of climate and gender?",
+                answers: [
+                    "A world where men are primarily responsible for household tasks due to climate-driven migrations.",
+                    "Climate change leads to the emergence of gender-neutral job markets.",
+                    "Women becoming the primary inventors of climate technology due to necessity.",
+                    "All of the above."
+                ],
+                correctAnswer: 3
+            },
+            {
+                question: "How can male perspectives influence climate solutions?",
+                answers: [
+                    "They can provide unique insights into the effects of climate change on families.",
+                    "They are less likely to recognize gender-specific issues.",
+                    "They can only hinder progress.",
+                    "They have no role in shaping climate discourse."
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "If climate change were a person, how would it treat different genders?",
+                answers: [
+                    "It would treat everyone equally.",
+                    "It would prioritize certain genders based on socio-economic status.",
+                    "It would have no regard for gender at all.",
+                    "It would only target those without resources."
+                ],
+                correctAnswer: 1
+            }
+        ];
+
+        let currentQuestion = -1;
+        let score = 0;
+
+        document.getElementById('startQuizBtn').addEventListener('click', startQuiz);
+        document.getElementById('learnMoreBtn').addEventListener('click', function () {
+            window.location.href = 'https://www.un.org/womenwatch/feature/climate_change/';
+        });
+
+        function startQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('quizContainer').style.display = 'block';
+            document.getElementById('startQuizBtn').style.display = 'none';
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const questionData = questions[currentQuestion];
+            document.getElementById('question').innerText = questionData.question;
+            const answerButtons = document.getElementById('answerButtons');
+            answerButtons.innerHTML = '';
+
+            questionData.answers.forEach((answer, index) => {
+                const button = document.createElement('button');
+                button.className = 'answer-button';
+                button.innerText = answer;
+                button.addEventListener('click', () => handleAnswer(index));
+                answerButtons.appendChild(button);
+            });
+
+            updateProgress();
+        }
+
+        function handleAnswer(answerIndex) {
+            const questionData = questions[currentQuestion];
+            const feedback = document.getElementById('feedback');
+            feedback.style.display = 'block';
+            
+            if (answerIndex === questionData.correctAnswer) {
+                score++;
+                feedback.innerText = "Correct! Great job!";
+            } else {
+                feedback.innerText = `Incorrect. The correct answer is: ${questionData.answers[questionData.correctAnswer]}`;
+            }
+
+            setTimeout(() => {
+                feedback.style.display = 'none';
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    renderQuestion();
+                } else {
+                    renderResults();
+                }
+            }, 2000);
+        }
+
+        function updateProgress() {
+            const progress = document.getElementById('progress');
+            const percentage = ((currentQuestion + 1) / questions.length) * 100;
+            progress.style.width = percentage + '%';
+        }
+
+        function renderResults() {
+            document.getElementById('quizContainer').style.display = 'none';
+            document.getElementById('resultsContainer').style.display = 'block';
+            document.getElementById('scoreText').innerText = `You scored ${score} out of ${questions.length}!`;
+            
+            const ctx = document.getElementById('resultsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Correct Answers', 'Incorrect Answers'],
+                    datasets: [{
+                        label: 'Results',
+                        data: [score, questions.length - score],
+                        backgroundColor: [
+                            'rgba(46, 204, 113, 0.7)',
+                            'rgba(231, 76, 60, 0.7)',
+                        ],
+                        borderColor: [
+                            'rgba(46, 204, 113, 1)',
+                            'rgba(231, 76, 60, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

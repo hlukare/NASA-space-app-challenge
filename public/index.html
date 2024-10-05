@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Upload</title>
+</head>
+<body>
+    <h1>Upload Your Blog</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label for="blog-upload">Upload your Blog:</label>
+        <input type="file" name="blog-upload" accept=".doc, .docx, .pdf, .txt" required>
+        <br>
+        <label for="date">When?</label>
+        <input type="date" name="date" required>
+        <br>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>

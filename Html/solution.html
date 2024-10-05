@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .container {
+            min-height: 100vh;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Set to display 3 cards per row */
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #2c2c2c;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            background-color: #3a3a3a;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .icon-container {
+            width: 60px;
+            height: 60px;
+            background-color: #007bff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .icon {
+            color: white;
+            font-size: 24px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            color: #b3b3b3;
+        }
+
+        /* Media query to handle responsiveness */
+        @media (max-width: 768px) {
+            .card-container {
+                grid-template-columns: repeat(1, 1fr); /* Change to single column for small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">Community Support</h1>
+        <div class="card-container">
+            <a href="https://climatenetwork.org/" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="card">
+                    <div class="icon-container">
+                        <i class="fas fa-broom icon"></i>
+                    </div>
+                    <h2 class="card-title">Join a support group</h2>
+                    <p class="card-description">Find a community of indiduals facing similar pollution-related health challenges and share experiences</p>
+                </div>
+            </a>   
+
+            <a href="https://counseling.online.wfu.edu/blog/health-and-wellness-counselors-make-positive-impacts-on-their-communities/" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="card">
+                    <div class="icon-container">
+                        <i class="fas fa-stethoscope icon"></i>
+                    </div>
+                    <h2 class="card-title">Get Health Counseling</h2>
+                    <p class="card-description">Receive expert advice from professionals on how to manage pollution's impact on your health.</p>
+                </div>
+            </a>            
+
+            <a href="https://www.adaptationcommunity.net/about-climate-change-adaptation/" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="card">
+                    <div class="icon-container">
+                        <i class="fas fa-leaf icon"></i>
+                    </div>
+                    <h2 class="card-title">Adopt Eco-Friendly Practices</h2>
+                    <p class="card-description">Discover small lifestyle changes you can make to reduce your pollution footprint.</p>
+                </div>
+            </a>
+            
+            <a href="https://www.un.org/en/climatechange/climate-solutions/education-key-addressing-climate-change" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="card">
+                    <div class="icon-container">
+                        <i class="fas fa-broom icon"></i>
+                    </div>
+                    <h2 class="card-title">Education and Awareness</h2>
+                    <p class="card-description">Contribute to local efforts in reducing waste and keeping your environment clean.</p>
+                </div>
+            </a>
+            
+
+            <a href="https://eliteclub.org.in/" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="card">
+                    <div class="icon-container">
+                        <i class="fas fa-broom icon"></i>
+                    </div>
+                    <h2 class="card-title">Social Media Community</h2>
+                    <p class="card-description">Join our vibrant community to share ideas, promote sustainability.</p>
+                </div>
+            </a>
+            
+            <a href="https://www.budgetdumpster.com/blog/organize-successful-community-cleanup" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="card">
+                    <div class="icon-container">
+                        <i class="fas fa-broom icon"></i>
+                    </div>
+                    <h2 class="card-title">Join Local Clean-Up Drives</h2>
+                    <p class="card-description">Contribute to local efforts in reducing waste and keeping your environment clean.</p>
+                </div>
+            </a>
+              
+        </div>
+    </div>
+</body>
+</html>
